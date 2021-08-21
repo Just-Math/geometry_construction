@@ -199,20 +199,21 @@ def extend_segment(A, B, k):
     C = B + vAB * k
     return C
 
-def mark_line(A, B, a):
+def mark_line(A, B, a, width = 0.7, **kwargs):
     #Отметить отрезок AB штрихом
     # а - количество штрихов
+    # на месте kwargs - аргументы из класса Line() для задания цвета, прозрачности и т.д.
     m = midpoint(A, B)
     n = normal_vector(A, B) / (np.linalg.norm(B - A))
-    p = np.array([B[0] - A[0],B[1] - A[1], 0]) / (np.linalg.norm(B - A))
+    p = np.array([B[0] - A[0], B[1] - A[1], 0]) / (np.linalg.norm(B - A))
     lines = VGroup()
     F1 = m + 0.1 * n
     F2 = m - 0.1 * n
     if a > 0:
-        s1 = Line(F1, F2)
+        s1 = Line(F1, F2, stroke_width=width*DEFAULT_STROKE_WIDTH, **kwargs)
         lines.add(s1)
         for i in range(a):
-            s2 = Line(F1, F2).shift(i *0.3 * 0.2 * p)
+            s2 = Line(F1, F2, stroke_width=width*DEFAULT_STROKE_WIDTH, **kwargs).shift(i * width / 10 * p)
             lines.add(s2)
     lines.move_to(m)
     return lines
