@@ -208,10 +208,10 @@ def mark_line(A, B, a):
     lines = VGroup()
     F1 = m + 0.1 * n
     F2 = m - 0.1 * n
-    if a > 1:
+    if a > 0:
         s1 = Line(F1, F2)
         lines.add(s1)
-        for i in range(a + 1):
+        for i in range(a):
             s2 = Line(F1, F2).shift(i *0.3 * 0.2 * p)
             lines.add(s2)
     lines.move_to(m)
