@@ -1,6 +1,6 @@
 from manim import *
 import numpy as np
-
+ 
 """ Вычисление длин, векторов, углов """
 
 def distance(A, B):
