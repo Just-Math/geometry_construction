@@ -147,15 +147,6 @@ def center_O9(A, B, C):
     O9 = 0.5 * (O + H)
     return O9
 
-def nagel_point(A, B, C):
-    #Возвращает координаты точки Нагеля
-    p = perimeter_triangle(A, B, C) / 2
-    a = distance(B, C)
-    b = distance(A, C)
-    c = distance(A, B)
-    N = ( (p - a) * A + (p - b) * B + (p - c) * C )/(-p)
-    return N
-
 def bisectors(A, B, C):
     #Возвращает основание биссектрисы напротив первой вершины
     b = distance(A, C)
