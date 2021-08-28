@@ -165,22 +165,6 @@ def split_segment(A, B, k):
     )
     return N
 
-def kasanie(c, A):
-    O = c.get_center()
-    r = c.radius
-    AO = distance(A, O)
-    AC = (AO ** 2 - r ** 2) ** 0.5
-    cosA = AC / AO
-    sinA = r / AO
-    x1 = A[0] * cosA - A[1] * sinA
-    y1 = A[0] * sinA + A[1] * cosA
-    O1 = np.array([x1, y1, 0])
-    vAO1 = O1 - A
-    nAO1 = normal_vector(A, O1) 
-    C = find_intersection(A, vAO1, O, nAO1)
-    return C
-
-
 """Оформление чертежа """
 def extend_segment(A, B, k):
     #Продлить отрезок AB на k единиц
