@@ -1,5 +1,5 @@
 from manim import *
-import numpy as mp
+import numpy as np
 
 """ Вычисление длин, векторов, углов """
 
