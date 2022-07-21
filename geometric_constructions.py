@@ -97,12 +97,23 @@ def incenter(A, B, C):
 
 def circumcenter(A, B, C):
     """ Координаты центра окружности, описанной около треугольника ABC """
-    M1 = midpoint(A, B)
-    M2 = midpoint(A, C)
-    n1 = normal_vector(A, B)
-    n2 = normal_vector(A, C)
-    O = find_intersection(M1, n1, M2, n2)
-    return O
+    #M1 = midpoint(A, B)
+    #M2 = midpoint(A, C)
+    #n1 = normal_vector(A, B)
+    #n2 = normal_vector(A, C)
+    #O = find_intersection(M1, n1, M2, n2)
+    #return O
+    sin_a = angle_sin(B, A, C)
+    cos_a = angle_cosinus(B, A, C)
+    sin_b = angle_sin(A, B, C)
+    cos_b = angle_cosinus(A, B, C)
+    sin_c = angle_sin(B, C, A)
+    cos_c = angle_cosinus(B, C, A)
+    sin_2a = 2 * sin_a * cos_a
+    sin_2b = 2 * sin_b * cos_b
+    sin_2c = 2 * sin_c * cos_c
+    I = (A * sin_2a + B * sin_2b + C * sin_2c) / (sin_2a + sin_2b + sin_2c)
+    return I
 
 def point_to_line_projection(C, A, B):
     """ Координаты проекции точки C на прямую AB """
